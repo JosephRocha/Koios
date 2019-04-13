@@ -22,4 +22,10 @@ public class Scan {
 	
 	
 	
+	public void readFile(String file) {
+		
+		
+		
+	}
+	
 }
