@@ -1,15 +1,18 @@
 package Controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.util.Duration;
 
-public class MenuController implements EventHandler{
+public class MenuController implements EventHandler, Initializable{
 	
 	@FXML 
 	Button update;
@@ -50,8 +53,6 @@ public class MenuController implements EventHandler{
 		t.start();
 		//timer.play();
 	
-	
-	
 	}
 	
 	public void updateValues() {
@@ -76,6 +77,13 @@ public class MenuController implements EventHandler{
 	@Override
 	public void handle(Event arg0) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		// just in case...
 		
 	}
 
