@@ -10,7 +10,8 @@ public class Profile {
 	private Image getUserImage;
 	private final double maxPercentage = 100;
 	private final double lowPercentage = 0;
-	private double currentPercentage ;
+	private double currentPercentage;
+	private Data profileData;
 	
 	
 	public Profile(String fN,String lN, Image im){ // Specific
@@ -29,6 +30,14 @@ public class Profile {
 		this.getUserImage = null;
 		this.currentPercentage = this.lowPercentage;
 		
+	}
+	
+	public Data getDataProfile() {
+		return this.profileData;
+	}
+	
+	public void setDataProfile(Data dp) {
+		this.profileData = dp;
 	}
 	
 	public String getFirstName() {

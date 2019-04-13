@@ -1,5 +1,9 @@
 package Model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Scan {
 	
 	private static Scan instance;
@@ -8,7 +12,7 @@ public class Scan {
 	private Scan() {
 		
 	}
-	
+		
 	
 	public static Scan getInstance() {
 		if(instance == null) {
@@ -22,10 +26,28 @@ public class Scan {
 	
 	
 	
-	public void readFile(String file) {
+	//Reads a file you passed in... 
+	public Data readFile(String filename) {
+		try {
+			File file = new File(filename);
+			Scanner scan;
+			scan = new Scanner(file);
+			Data dot = new Data();
 		
+			while (scan.hasNextLine()) {
+			// read the line of file
+			// split by delmiter into token char []
+			// populate 
+			//TODO: Do Something based on the format...
+				
+			}
+		scan.close(); //close
 		
-		
+		return dot;
+		} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		} // open file stream...
+		return null;
 	}
-	
 }
