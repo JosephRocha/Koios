@@ -6,6 +6,7 @@ public class Profile {
 	
 	private String fistName;
 	private String lastName;
+	private int id;
 	private Image getUserImage;
 	private final double maxPercentage = 100;
 	private final double lowPercentage = 0;
@@ -17,6 +18,8 @@ public class Profile {
 			this.lastName = lN;
 			this.getUserImage = im;
 			this.currentPercentage = this.lowPercentage;
+			this.id = SystemDeclarations.currentId;
+			SystemDeclarations.currentId++;
 	}
 	
 	public Profile() { // Default
@@ -41,11 +44,20 @@ public class Profile {
 	}
 	
 	public double getPercentage() {
-		return this.currentPercentage;
+		if((this.currentPercentage >= this.lowPercentage) && 
+				(this.currentPercentage <= this.maxPercentage)){
+			return this.currentPercentage;
+		}
+		System.err.println("Error: Size is invalid, Profile.java: 51 ");
+		return 00;
 	}
 	
 	public String getPerString() {
 		return this.currentPercentage + "%";
+	}
+	
+	public int getUserId() {
+		return this.id;
 	}
 	
 	
