@@ -10,6 +10,7 @@ public class Scan {
 	}
 	
 	
+	
 	public static Scan getInstance() {
 		if(instance == null) {
 			instance = new Scan();
@@ -26,6 +27,7 @@ public class Scan {
 		
 		
 		
+		
 	}
 	
-}
+ }
