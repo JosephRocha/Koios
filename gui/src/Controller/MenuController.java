@@ -4,7 +4,10 @@ import java.awt.AWTException;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.net.URL;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
@@ -53,7 +56,7 @@ public class MenuController implements EventHandler, Initializable{
 
 	//Mouse Input Variables
 	@FXML
-	Label MousePos;
+	Label Mouse_Pos;
 
 	@FXML
 	Label Velocity_Min;
@@ -96,6 +99,7 @@ public class MenuController implements EventHandler, Initializable{
 	ArrayList<Wrapper> dataEnc = new ArrayList();
 	
 	public MenuController() {
+		DataCollection();
 		try {
 			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
 			BufferedImage bf = new java.awt.Robot().createScreenCapture(screenRect);
@@ -172,7 +176,8 @@ public class MenuController implements EventHandler, Initializable{
 		t.start();
 		//timer.play();
 	}
-	
+
+
 /*	public Image overlayImage(Image one, Image two) {
 		Image main = null;
 		
@@ -184,7 +189,69 @@ public class MenuController implements EventHandler, Initializable{
 			
 			return main;
 	}*/
-	
+
+	public void DataCollection()
+	{
+		System.out.println("Inside DataCollection");
+		Thread mouseInput = new Thread(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				try
+				{
+					BufferedInputStream reader = new BufferedInputStream(new FileInputStream("C:\\Users\\Marvin\\IdeaProjects\\Koios\\gui\\demofile2.txt"));
+					StringBuilder s = new StringBuilder();
+					char newRand = (char)reader.read();
+					char lastRand = 'X';
+					int iTest = -1;
+					boolean running = true;
+					boolean run = true;
+
+					while(running)
+					{
+						System.out.println("Exeception");
+						if(reader.available() > 0)
+						{
+							iTest = reader.read();
+							if(iTest != 42 && newRand != lastRand)
+							{
+								char cTest = (char)iTest;
+								run = true;
+								System.out.print(cTest + " ");
+								s.append(cTest);
+							}
+							else if(run == true)
+							{
+								System.out.println("String = " + s.toString());
+								Mouse_Pos.setText(s.toString());
+								s = new StringBuilder();
+								run = false;
+							}
+						}
+						else
+						{
+							reader = new BufferedInputStream(new FileInputStream("C:\\Users\\Marvin\\IdeaProjects\\Koios\\gui\\demofile2.txt"));
+							lastRand = newRand;
+							newRand = (char)reader.read();
+							System.out.println("Reset cRead = " + newRand);
+							Thread.sleep(50);
+						}
+					}
+				}
+				catch(Exception e)
+				{
+					System.out.println("Exeception");
+					e.printStackTrace();
+				}
+
+			}
+
+		});
+		mouseInput.start();
+	}
+
+
 	public void ScrollValues() {
 		
 		// index / size = \
