@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="660.0" prefWidth="1007.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="660.0" prefWidth="1007.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <GridPane alignment="CENTER" gridLinesVisible="true" layoutY="-1.0" prefHeight="622.0" prefWidth="172.0" style="-fx-background-color: #2A3132; -fx-border-color: #325751; -fx-border-width: 4;">
             <columnConstraints>
@@ -113,7 +113,10 @@
                 </GridPane>
                 <ScrollPane fx:id="Input_Scroll" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2A3132;" vbarPolicy="NEVER" GridPane.rowIndex="3">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="166.0" style="-fx-background-color: #2A3132;" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="166.0" style="-fx-background-color: #2A3132;">
+                     <children>
+                        <ListView fx:id="input" prefHeight="318.0" prefWidth="163.0" />
+                     </children></AnchorPane>
                     </content>
                 </ScrollPane>
             </children>

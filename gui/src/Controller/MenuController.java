@@ -53,6 +53,9 @@ public class MenuController implements EventHandler, Initializable{
 	ScrollPane keyboardListid;
 	
 	@FXML
+	ListView input;
+	
+	@FXML
 	ListView profileid;
 	
 	@FXML
@@ -87,6 +90,10 @@ public class MenuController implements EventHandler, Initializable{
 	int minScrollValue;
 	int lastNum = -1;
 	
+	ArrayList<Double> val = new ArrayList<Double>();
+	
+	int percentage = 0;
+	
 	public class Wrapper{
 			
 		public Image pr;
@@ -116,6 +123,47 @@ public class MenuController implements EventHandler, Initializable{
 		watcher.addUser(new Profile("FaceLess","Howard",new Image("/Resource/OHyrJ8g.jpg")));
 		watcher.addUser(new Profile("Nice","Howard",new Image("/Resource/s00nsif0quuydyolyndr.jpg")));
 		watcher.addUser(new Profile("General","Howard",new Image("/Resource/tumblr_oyg814xR791r9qoglo3_r1_500.jpg")));
+		
+		
+		
+		
+		Timeline input = new Timeline(new KeyFrame(Duration.millis(4000), 
+				new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					// TODO Auto-generated method stub
+					// Every 3 seconds. 
+					for(int i = 0;i < 10; i++) {
+						//val.add();
+						double mtt =(Double)Math.random() * 99 +1 ;
+						//input.getItems().add(mtt);
+					}
+					
+					int mat = (int) Math.random() * 7 +1;
+					percentage += mat;
+					percentid.setText(percentage+"");
+				}
+			}));
+		
+			Thread t3 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				while(!Thread.currentThread().isInterrupted()) {
+					try {			
+						input.play();
+						Thread.currentThread().sleep(4000);
+					}catch(Exception e) {
+						Thread.currentThread().interrupt();
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+		
+		t3.start();
+		
+		
 		
 		
 		
@@ -174,7 +222,7 @@ public class MenuController implements EventHandler, Initializable{
 					// TODO Auto-generated method stub
 					// Every 3 seconds. 
 					updateValues();
-					DataCollection();
+					//DataCollection();
 				}
 			}));
 		
@@ -198,7 +246,13 @@ public class MenuController implements EventHandler, Initializable{
 
 		//timer.play();
 	}
-
+	
+	
+	public void reinit() {
+		
+		
+		
+	}
 
 
 	@FXML
@@ -348,6 +402,9 @@ public class MenuController implements EventHandler, Initializable{
 		// TODO Auto-generated method stub
 		// just in case...
 		
+		int mat = (int) Math.random() * 7 +1;
+		percentage += mat;
+		percentid.setText(percentage + "");
 		
 		for(int i = 0; i < this.dataEnc.size(); i++) {
 			BorderPane p = new BorderPane();
@@ -364,6 +421,14 @@ public class MenuController implements EventHandler, Initializable{
 			p.setBottom(this.dataEnc.get(i).lp);
 			this.profileid.getItems().add(p);
 		}
+		
+		for(int i = 0;i < 10; i++) {
+			//val.add();
+			double mtt = (Double)Math.random() * 99 + 1;
+			input.getItems().add(mtt);
+		}
+		
+		
 		
 		
 	}
