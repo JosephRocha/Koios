@@ -54,7 +54,7 @@ public class MenuController implements EventHandler, Initializable{
 	@FXML
 	Label percentid;
 
-	//Mouse Input Variables
+
 	@FXML
 	Label Mouse_Pos;
 
@@ -98,7 +98,8 @@ public class MenuController implements EventHandler, Initializable{
 	
 	ArrayList<Wrapper> dataEnc = new ArrayList();
 	
-	public MenuController() {
+	public MenuController()
+	{
 		DataCollection();
 		try {
 			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
@@ -172,8 +173,9 @@ public class MenuController implements EventHandler, Initializable{
 				}
 			}
 		});
-		
+
 		t.start();
+
 		//timer.play();
 	}
 
@@ -195,7 +197,7 @@ public class MenuController implements EventHandler, Initializable{
 		System.out.println("Inside DataCollection");
 		Thread mouseInput = new Thread(new Runnable()
 		{
-			@Override
+
 			public void run()
 			{
 				try
@@ -210,7 +212,6 @@ public class MenuController implements EventHandler, Initializable{
 
 					while(running)
 					{
-						System.out.println("Exeception");
 						if(reader.available() > 0)
 						{
 							iTest = reader.read();

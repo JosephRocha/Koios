@@ -54,7 +54,7 @@
                         <Font name="Times New Roman" size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Mouse_Pos" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="84.0" text="2512, 5754" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
+                  <Label id="Mouse_Pos" fx:id="Mouse_Pos" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="84.0" text="test" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
                      <font>
                         <Font name="Times New Roman" size="12.0" />
                      </font>
