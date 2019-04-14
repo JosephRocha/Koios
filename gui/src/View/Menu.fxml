@@ -10,46 +10,124 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="660.0" prefWidth="1007.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <GridPane alignment="CENTER" gridLinesVisible="true" layoutY="-9.0" prefHeight="633.0" prefWidth="148.0" style="-fx-background-color: #2A3132; -fx-border-color: #325751; -fx-border-width: 5;">
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutY="-1.0" prefHeight="622.0" prefWidth="172.0" style="-fx-background-color: #2A3132; -fx-border-color: #325751; -fx-border-width: 4;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="235.0" minHeight="0.0" prefHeight="219.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="255.0" minHeight="8.0" prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="255.0" minHeight="8.0" prefHeight="10.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="419.0" minHeight="10.0" prefHeight="298.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="138.0" style="-fx-background-color: #2A3132;" text="Inputs" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="165.0" style="-fx-background-color: #2A3132;" text="Values" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Times New Roman" size="12.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="40.0" prefWidth="138.0" style="-fx-background-color: #2A3132;" text="Keyboard Inputs" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2">
+            <Label alignment="CENTER" prefHeight="33.0" prefWidth="163.0" style="-fx-background-color: #2A3132;" text="Input" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2">
                <font>
                   <Font name="Times New Roman" size="12.0" />
                </font>
             </Label>
-            <ScrollPane fx:id="mouseListid" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefHeight="253.0" prefWidth="138.0" style="-fx-background: #2A3132; -fx-border-color: #2A3132;" vbarPolicy="NEVER" GridPane.rowIndex="1" />
-            <ScrollPane fx:id="keyboardListid" hbarPolicy="NEVER" pannable="true" prefHeight="327.0" prefWidth="138.0" style="-fx-background: #2A3132; -fx-border-color: #2A3132;" vbarPolicy="NEVER" GridPane.rowIndex="3" />
+            <GridPane gridLinesVisible="true" prefHeight="235.0" prefWidth="194.0" style="-fx-background-insets: 0,0011;" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="89.0" minWidth="10.0" prefWidth="75.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="76.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="73.0" minHeight="2.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="144.0" minHeight="0.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="144.0" minHeight="10.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="202.0" minHeight="10.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="202.0" minHeight="10.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="202.0" minHeight="10.0" prefHeight="5.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" prefHeight="16.0" prefWidth="79.0" text="Mouse Position" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Mouse_Pos" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="84.0" text="2512, 5754" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" prefHeight="16.0" prefWidth="79.0" text="Velocity_Min" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Velocity_Min" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="84.0" text="500" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" prefHeight="16.0" prefWidth="79.0" text="Velocity_Max" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" prefHeight="16.0" prefWidth="79.0" text="Velocity_Std" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" prefHeight="16.0" prefWidth="79.0" text="Velocity_Mean" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" prefHeight="16.0" prefWidth="79.0" text="Velocity_Med" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Velocity_Max" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="84.0" text="800" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Velocity_Std" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="84.0" text="400.2" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Velocity_Mean" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="84.0" text="54.2" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Velocity_Median" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="84.0" text="78" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <ScrollPane fx:id="Input_Scroll" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2A3132;" vbarPolicy="NEVER" GridPane.rowIndex="3">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="166.0" style="-fx-background-color: #2A3132;" />
+              </content>
+            </ScrollPane>
          </children>
          <opaqueInsets>
-            <Insets top="20.0" />
+            <Insets />
          </opaqueInsets>
       </GridPane>
-      <Pane layoutX="148.0" layoutY="5.0" prefHeight="616.0" prefWidth="859.0" style="-fx-background-color: black;" />
-      <ImageView fx:id="screenCapid" fitHeight="607.0" fitWidth="849.0" layoutX="151.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true" />
-      <ScrollPane id="UserScrollPane" fx:id="userProfileid" hbarPolicy="NEVER" layoutX="1.0" layoutY="618.0" prefHeight="135.0" prefWidth="1003.0" style="-fx-background: #2A3132; -fx-border-color: #2a3132;">
+      <Pane layoutX="171.0" layoutY="-1.0" prefHeight="622.0" prefWidth="836.0" style="-fx-background-color: black;" />
+      <ImageView fx:id="screenCapid" fitHeight="607.0" fitWidth="829.0" layoutX="172.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true" />
+      <ScrollPane id="UserScrollPane" fx:id="userProfileid" hbarPolicy="NEVER" layoutY="618.0" prefHeight="135.0" prefWidth="1007.0" style="-fx-background: #2A3132; -fx-border-color: #2a3132;">
          <content>
-            <ListView fx:id="profileid" orientation="HORIZONTAL" prefHeight="140.0" prefWidth="996.0" />
+            <ListView fx:id="profileid" orientation="HORIZONTAL" prefHeight="132.0" prefWidth="1000.0" />
          </content></ScrollPane>
-      <GridPane gridLinesVisible="true" layoutX="932.0" layoutY="5.0" prefHeight="72.0" prefWidth="75.0" style="-fx-background-color: #2A3132; -fx-border-color: #000000;">
+      <GridPane gridLinesVisible="true" layoutX="932.0" layoutY="-1.0" prefHeight="72.0" prefWidth="75.0" style="-fx-background-color: #2A3132; -fx-border-color: #000000;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -64,14 +142,5 @@
             </Label>
          </children>
       </GridPane>
-      <Line endX="146.0" endY="30.0" startY="30.0" stroke="#335752" strokeWidth="4.0" />
-      <Line endX="-153.0" endY="112.0" layoutX="296.0" layoutY="193.0" startX="-291.0" startY="112.0" stroke="#335752" strokeWidth="4.0" />
-      <Line endX="-160.0" endY="65.0" layoutX="306.0" layoutY="203.0" startX="-301.0" startY="65.0" stroke="#335752" strokeWidth="4.0" />
-      <Line endX="135.0" endY="-7.0" layoutX="10.0" layoutY="10.0" startX="-10.0" startY="-7.0" stroke="#335752" strokeWidth="4.0" />
-      <Line endX="994.0" endY="-8.0" layoutX="10.0" layoutY="10.0" startX="-6.0" startY="-8.0" stroke="#335752" strokeWidth="6.0" />
-      <Line endX="981.4141845703125" endY="598.4141845703125" layoutX="20.0" layoutY="20.0" startX="-14.999994277954102" startY="599.0" stroke="#335752" strokeWidth="6.0" />
-      <Line endX="994.0" endY="609.0" layoutX="10.0" layoutY="10.0" startX="-9.0" startY="609.0" stroke="#335752" strokeWidth="4.0" />
-      <Line endX="-10.0" endY="748.0" layoutX="10.0" layoutY="10.0" startX="-9.999996185302734" startY="611.0" stroke="#335752" strokeWidth="8.0" />
-      <Line endX="-18.9999942779541" endY="736.0" layoutX="20.0" layoutY="20.0" startX="982.0" startY="736.0" stroke="#335752" strokeWidth="10.0" />
    </children>
 </AnchorPane>
