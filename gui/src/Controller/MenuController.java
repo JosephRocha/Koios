@@ -49,11 +49,29 @@ public class MenuController implements EventHandler, Initializable{
 	ListView profileid;
 	
 	@FXML
-	Label percentid; 
-	
-	
-	
-	
+	Label percentid;
+
+	//Mouse Input Variables
+	@FXML
+	Label MousePos;
+
+	@FXML
+	Label Velocity_Min;
+
+	@FXML
+	Label Velocity_Max;
+
+	@FXML
+	Label Velocity_Std;
+
+	@FXML
+	Label Velocity_Mean;
+
+	@FXML
+	Label Velocity_Median;
+
+	@FXML
+	ScrollPane Input_Scroll;
 	
 	@FXML 
 	Image test;
