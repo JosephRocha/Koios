@@ -78,6 +78,7 @@ public class MenuController implements EventHandler, Initializable{
 	
 	@FXML 
 	Image test;
+
 	boolean toggle;
 	int maxScrollValue;
 	int minScrollValue;
@@ -191,13 +192,13 @@ public class MenuController implements EventHandler, Initializable{
 			
 			return main;
 	}*/
-
+	@FXML
 	public void DataCollection()
 	{
 		System.out.println("Inside DataCollection");
 		Thread mouseInput = new Thread(new Runnable()
 		{
-
+			@Override
 			public void run()
 			{
 				try
@@ -225,6 +226,9 @@ public class MenuController implements EventHandler, Initializable{
 							else if(run == true)
 							{
 								System.out.println("String = " + s.toString());
+								String myVal = Mouse_Pos.getText();
+								System.out.println("String = " + myVal);
+
 								Mouse_Pos.setText(s.toString());
 								s = new StringBuilder();
 								run = false;
