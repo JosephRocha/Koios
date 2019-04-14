@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="275.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="275.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane style="-fx-background-color: #2A3132; -fx-border-color: #90AFC5;">
         <columnConstraints>
@@ -38,7 +38,7 @@
          </children>
       </GridPane>
       <ScrollPane id="UserScrollPane" hbarPolicy="NEVER" layoutY="187.0" prefHeight="88.0" prefWidth="524.0" style="-fx-background: #2A3132; -fx-border-color: #2a3132;" />
-      <ImageView fitHeight="186.0" fitWidth="417.0" layoutX="102.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="screenCapid" fitHeight="186.0" fitWidth="417.0" layoutX="102.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
       <Line endX="421.0" layoutX="102.0" layoutY="186.0" startX="-109.0" stroke="#90afc5" strokeWidth="2.0" />
       <GridPane gridLinesVisible="true" layoutX="463.0" prefHeight="53.0" prefWidth="61.0" style="-fx-background-color: #2A3132; -fx-border-color: #000000;">
         <columnConstraints>

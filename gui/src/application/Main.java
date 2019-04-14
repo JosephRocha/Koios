@@ -21,11 +21,9 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader(fxmlFile);
 			loader.setController(new MenuController());
 			Parent root = loader.load();
-			Scene scene = new Scene(root,400,400);
-			//primaryStage.getScene().setRoot(root);
+			Scene scene = new Scene(root);
 			
-			
-			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {

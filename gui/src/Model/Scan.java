@@ -35,10 +35,15 @@ public class Scan {
 			Data dot = new Data();
 		
 			while (scan.hasNextLine()) {
-			// read the line of file
-			// split by delmiter into token char []
-			// populate 
-			//TODO: Do Something based on the format...
+			
+				// read the line of file
+				
+				String[] token = scan.nextLine().split(",");
+				
+				// split by delimiter into token char []
+				// populate 
+				//TODO: Do Something based on the format...
+			
 				
 			}
 		scan.close(); //close

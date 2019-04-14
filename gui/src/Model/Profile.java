@@ -7,7 +7,7 @@ public class Profile {
 	private String fistName;
 	private String lastName;
 	private int id;
-	private Image getUserImage;
+	private Image getUserImage = null;
 	private final double maxPercentage = 100;
 	private final double lowPercentage = 0;
 	private double currentPercentage;
