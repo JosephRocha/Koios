@@ -5,8 +5,10 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import Model.SystemDeclarations;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.embed.swing.SwingFXUtils;
@@ -15,9 +17,14 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
 
 public class MenuController implements EventHandler, Initializable{
@@ -27,10 +34,89 @@ public class MenuController implements EventHandler, Initializable{
 	@FXML
 	ImageView screenCapid;
 	
+	@FXML
+	ScrollPane mouseListid;
+	
+	@FXML
+	ScrollPane keyboardListid;
+	
+	@FXML
+	ListView profileid;
+	
+	@FXML
+	Label percentid; 
+	
+	
+	
+	
+	
+	@FXML 
+	Image test;
 	boolean toggle;
+	int maxScrollValue;
+	int minScrollValue;
+	
+	public class Wrapper{
+			
+		public Image pr;
+		public Label lp;
+		
+		public Wrapper(Image i, String l) {
+			this.pr = i;
+			this.lp = new Label(l);
+		}
+	}
+	
+	ArrayList<Wrapper> dataEnc = new ArrayList();
 	
 	public MenuController() {
-		Timeline timer = new Timeline(new KeyFrame(Duration.millis(10), 
+		try {
+			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+			BufferedImage bf = new java.awt.Robot().createScreenCapture(screenRect);
+			test =  SwingFXUtils.toFXImage(bf, null);
+			//this.screenCapid.setImage(i);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		for(int i  = 0; i < 10; i++) {
+			this.dataEnc.add(new Wrapper(test,"hello"));
+			SystemDeclarations.getXsList().add(i);
+		}
+		
+		
+		// size of static
+		
+		
+		Timeline ScrollVal = new Timeline(new KeyFrame(Duration.millis(10), 
+				new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					// TODO Auto-generated method stub
+					// Every 3 seconds. 
+					ScrollValues();
+				}
+			}));
+		
+			Thread t2 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				while(!Thread.currentThread().isInterrupted()) {
+					try {			
+						ScrollVal.play();
+						Thread.currentThread().sleep(10);
+					}catch(Exception e) {
+						Thread.currentThread().interrupt();
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+		
+		t2.start();
+		
+		Timeline ScreenCaptureTimer = new Timeline(new KeyFrame(Duration.millis(10), 
 				new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
@@ -46,7 +132,7 @@ public class MenuController implements EventHandler, Initializable{
 				// TODO Auto-generated method stub
 				while(!Thread.currentThread().isInterrupted()) {
 					try {			
-						timer.play();
+						ScreenCaptureTimer.play();
 						Thread.currentThread().sleep(10);
 					}catch(Exception e) {
 						Thread.currentThread().interrupt();
@@ -60,6 +146,15 @@ public class MenuController implements EventHandler, Initializable{
 		//timer.play();
 	}
 	
+	public void ScrollValues() {
+		
+		// index / size = \
+		
+		
+		
+	}
+	
+	
 	public void updateValues() {
 		System.out.println("Prints every 3 seconds");
 		/*if(toggle == true) {
@@ -69,11 +164,9 @@ public class MenuController implements EventHandler, Initializable{
 			//update.setText("Yes!!");
 			this.toggle = true;
 		}*/
-		
 		try {
 			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
 			BufferedImage bf = new java.awt.Robot().createScreenCapture(screenRect);
-		
 			javafx.scene.image.Image i =  SwingFXUtils.toFXImage(bf, null);
 			this.screenCapid.setImage(i);
 		} catch (AWTException e) {
@@ -100,6 +193,21 @@ public class MenuController implements EventHandler, Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		// just in case...
+		
+		
+		for(int i = 0; i < this.dataEnc.size(); i++) {
+			BorderPane p = new BorderPane();
+			Image ik = this.dataEnc.get(i).pr;
+			//ik..resize(10, 10);
+			ImageView iv = new ImageView(ik);
+			iv.setFitHeight(100);
+			iv.setFitWidth(100);
+			p.setCenter(iv);
+			this.dataEnc.get(i).lp.setText("Person: " + i);
+			p.setBottom(this.dataEnc.get(i).lp);
+			this.profileid.getItems().add(p);
+		}
+		
 		
 	}
 

@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="275.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="762.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <GridPane style="-fx-background-color: #2A3132; -fx-border-color: #90AFC5;">
+      <GridPane layoutY="-9.0" prefHeight="616.0" prefWidth="148.0" style="-fx-background-color: #2A3132; -fx-border-color: #90AFC5;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="22.9" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="68.75" minHeight="0.0" prefHeight="68.75" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="22.9" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="68.75" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="235.0" minHeight="0.0" prefHeight="219.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="255.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="419.0" minHeight="10.0" prefHeight="298.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="100.0" style="-fx-background-color: #2A3132; -fx-border-color: #90AFC5;" text="Mouse Inputs" textAlignment="CENTER" textFill="WHITE">
@@ -33,14 +35,18 @@
                   <Font name="Times New Roman" size="12.0" />
                </font>
             </Label>
-            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background: #2A3132; -fx-border-color: #90AFC5;" vbarPolicy="NEVER" GridPane.rowIndex="1" />
-            <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="85.0" prefWidth="100.0" style="-fx-background: #2A3132; -fx-border-color: #90AFC5;" vbarPolicy="NEVER" GridPane.rowIndex="3" />
+            <ScrollPane fx:id="mouseListid" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background: #2A3132; -fx-border-color: #90AFC5;" vbarPolicy="NEVER" GridPane.rowIndex="1" />
+            <ScrollPane fx:id="keyboardListid" hbarPolicy="NEVER" pannable="true" prefHeight="85.0" prefWidth="100.0" style="-fx-background: #2A3132; -fx-border-color: #90AFC5;" vbarPolicy="NEVER" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <ScrollPane id="UserScrollPane" hbarPolicy="NEVER" layoutY="187.0" prefHeight="88.0" prefWidth="524.0" style="-fx-background: #2A3132; -fx-border-color: #2a3132;" />
-      <ImageView fx:id="screenCapid" fitHeight="186.0" fitWidth="417.0" layoutX="102.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
-      <Line endX="421.0" layoutX="102.0" layoutY="186.0" startX="-109.0" stroke="#90afc5" strokeWidth="2.0" />
-      <GridPane gridLinesVisible="true" layoutX="463.0" prefHeight="53.0" prefWidth="61.0" style="-fx-background-color: #2A3132; -fx-border-color: #000000;">
+      <Pane layoutX="148.0" layoutY="5.0" prefHeight="616.0" prefWidth="859.0" style="-fx-background-color: black;" />
+      <ImageView fx:id="screenCapid" fitHeight="607.0" fitWidth="849.0" layoutX="151.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+      <ScrollPane id="UserScrollPane" fx:id="userProfileid" hbarPolicy="NEVER" layoutX="1.0" layoutY="618.0" prefHeight="138.0" prefWidth="1003.0" style="-fx-background: #2A3132; -fx-border-color: #2a3132;">
+         <content>
+            <ListView fx:id="profileid" orientation="HORIZONTAL" prefHeight="134.0" prefWidth="985.0" />
+         </content></ScrollPane>
+      <Line endX="816.0" endY="1.0" layoutX="184.0" layoutY="616.0" startX="-109.0" stroke="#90afc5" strokeWidth="2.0" />
+      <GridPane gridLinesVisible="true" layoutX="903.0" layoutY="1.0" prefHeight="104.0" prefWidth="100.0" style="-fx-background-color: #2A3132; -fx-border-color: #000000;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -48,7 +54,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="53.0" prefWidth="61.0" text="0%" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="percentid" alignment="CENTER" prefHeight="68.0" prefWidth="76.0" text="0%" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>

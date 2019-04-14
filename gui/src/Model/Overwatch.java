@@ -11,7 +11,6 @@ public class Overwatch {
 	
 	
 	public Overwatch() {
-		
 		this.SystemName = "System X";
 		this.users = new HashMap<>();
 		

@@ -44,7 +44,6 @@ public class Scan {
 				// populate 
 				//TODO: Do Something based on the format...
 			
-				
 			}
 		scan.close(); //close
 		
