@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
+
 import Model.SystemDeclarations;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -21,6 +22,8 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.*;
+
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -54,9 +57,8 @@ public class MenuController implements EventHandler, Initializable{
 	@FXML
 	Label percentid;
 
-
 	@FXML
-	Label Mouse_Pos;
+	private Label Mouse_Pos;
 
 	@FXML
 	Label Velocity_Min;
@@ -98,10 +100,11 @@ public class MenuController implements EventHandler, Initializable{
 	}
 	
 	ArrayList<Wrapper> dataEnc = new ArrayList();
-	
+
 	public MenuController()
 	{
-		DataCollection();
+
+		//DataCollection();
 		try {
 			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
 			BufferedImage bf = new java.awt.Robot().createScreenCapture(screenRect);
@@ -156,6 +159,7 @@ public class MenuController implements EventHandler, Initializable{
 					// TODO Auto-generated method stub
 					// Every 3 seconds. 
 					updateValues();
+					DataCollection();
 				}
 			}));
 		
@@ -181,79 +185,84 @@ public class MenuController implements EventHandler, Initializable{
 	}
 
 
-/*	public Image overlayImage(Image one, Image two) {
-		Image main = null;
-		
-		main.
-			
-			
-			
-			
-			
-			return main;
-	}*/
+
 	@FXML
 	public void DataCollection()
 	{
-		System.out.println("Inside DataCollection");
-		Thread mouseInput = new Thread(new Runnable()
+				this.Mouse_Pos.setText("276, 295");
+
+				System.out.println("Inside DataCollection");
+
+						try
+						{
+							BufferedInputStream reader = new BufferedInputStream(new FileInputStream("C:\\Users\\Marvin\\IdeaProjects\\Koios\\gui\\MouseInput.txt"));
+							StringBuilder s = new StringBuilder();
+							char newRand = (char)reader.read();
+							char lastRand = 'X';
+							int iTest = -1;
+							boolean running = true;
+							boolean run = true;
+							int iVal = 0;
+							while(iVal < 5)
+							{
+								if(reader.available() > 0)
+								{
+									iTest = reader.read();
+									if(iTest != 42 && newRand != lastRand)
+									{
+										char cTest = (char)iTest;
+										run = true;
+										System.out.print(cTest + " ");
+										s.append(cTest);
+									}
+									else if(run == true)
+									{
+										System.out.println("String = " + s.toString());
+		//								String myVal = Mouse_Pos.getText();
+
+		//								System.out.println("String = " + myVal);
+
+										this.Mouse_Pos.setText(s.toString());
+										s = new StringBuilder();
+										run = false;
+										iVal++;
+									}
+
+								}
+								else
+								{
+									reader = new BufferedInputStream(new FileInputStream("C:\\Users\\Marvin\\IdeaProjects\\Koios\\gui\\MouseInput.txt"));
+									lastRand = newRand;
+									newRand = (char)reader.read();
+									System.out.println("Reset cRead = " + newRand);
+									Thread.sleep(50);
+								}
+							}
+						}
+						catch(Exception e)
+						{
+							System.out.println("Exeception");
+							e.printStackTrace();
+						}
+
+	}
+
+	public void updates()
+	{
+		/*
+		try
 		{
-			@Override
-			public void run()
-			{
-				try
-				{
-					BufferedInputStream reader = new BufferedInputStream(new FileInputStream("C:\\Users\\Marvin\\IdeaProjects\\Koios\\gui\\demofile2.txt"));
-					StringBuilder s = new StringBuilder();
-					char newRand = (char)reader.read();
-					char lastRand = 'X';
-					int iTest = -1;
-					boolean running = true;
-					boolean run = true;
-
-					while(running)
-					{
-						if(reader.available() > 0)
-						{
-							iTest = reader.read();
-							if(iTest != 42 && newRand != lastRand)
-							{
-								char cTest = (char)iTest;
-								run = true;
-								System.out.print(cTest + " ");
-								s.append(cTest);
-							}
-							else if(run == true)
-							{
-								System.out.println("String = " + s.toString());
-								String myVal = Mouse_Pos.getText();
-								System.out.println("String = " + myVal);
-
-								Mouse_Pos.setText(s.toString());
-								s = new StringBuilder();
-								run = false;
-							}
-						}
-						else
-						{
-							reader = new BufferedInputStream(new FileInputStream("C:\\Users\\Marvin\\IdeaProjects\\Koios\\gui\\demofile2.txt"));
-							lastRand = newRand;
-							newRand = (char)reader.read();
-							System.out.println("Reset cRead = " + newRand);
-							Thread.sleep(50);
-						}
-					}
-				}
-				catch(Exception e)
-				{
-					System.out.println("Exeception");
-					e.printStackTrace();
-				}
-
-			}
-
-		});
-		mouseInput.start();
+		//	wait(5000);
+		//	this.Velocity_Min;
+		//	this.Velocity_Max;
+		//	this.Velocity_Mean;
+		//	this.Velocity_Median;
+		//	this.Velocity_Std;
+		}
+		catch(InterruptedException e)
+		{
+			System.out.println("Error");
+		}*/
 	}
 
 
