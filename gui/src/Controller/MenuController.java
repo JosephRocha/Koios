@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 import Model.SystemDeclarations;
@@ -22,9 +23,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.effect.Blend;
+import javafx.scene.effect.BlendMode;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
 public class MenuController implements EventHandler, Initializable{
@@ -55,14 +60,17 @@ public class MenuController implements EventHandler, Initializable{
 	boolean toggle;
 	int maxScrollValue;
 	int minScrollValue;
+	int lastNum = -1;
 	
 	public class Wrapper{
 			
 		public Image pr;
 		public Label lp;
+		public ImageView iv;
 		
 		public Wrapper(Image i, String l) {
 			this.pr = i;
+			this.iv = new ImageView(this.pr);
 			this.lp = new Label(l);
 		}
 	}
@@ -74,6 +82,7 @@ public class MenuController implements EventHandler, Initializable{
 			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
 			BufferedImage bf = new java.awt.Robot().createScreenCapture(screenRect);
 			test =  SwingFXUtils.toFXImage(bf, null);
+			//test = SystemDeclarations.xImage;
 			//this.screenCapid.setImage(i);
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -83,12 +92,12 @@ public class MenuController implements EventHandler, Initializable{
 			this.dataEnc.add(new Wrapper(test,"hello"));
 			SystemDeclarations.getXsList().add(i);
 		}
-		
+		Collections.shuffle(SystemDeclarations.XsOut);
 		
 		// size of static
 		
 		
-		Timeline ScrollVal = new Timeline(new KeyFrame(Duration.millis(10), 
+		Timeline ScrollVal = new Timeline(new KeyFrame(Duration.millis(1000), 
 				new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
@@ -105,7 +114,7 @@ public class MenuController implements EventHandler, Initializable{
 				while(!Thread.currentThread().isInterrupted()) {
 					try {			
 						ScrollVal.play();
-						Thread.currentThread().sleep(10);
+						Thread.currentThread().sleep(1000);
 					}catch(Exception e) {
 						Thread.currentThread().interrupt();
 						e.printStackTrace();
@@ -146,12 +155,43 @@ public class MenuController implements EventHandler, Initializable{
 		//timer.play();
 	}
 	
+/*	public Image overlayImage(Image one, Image two) {
+		Image main = null;
+		
+		main.
+			
+			
+			
+			
+			
+			return main;
+	}*/
+	
 	public void ScrollValues() {
 		
 		// index / size = \
-		
-		
-		
+		if(this.lastNum != SystemDeclarations.getXsList().get(0) && SystemDeclarations.XsOut.size() != 0) {
+			profileid.scrollTo((int)((SystemDeclarations.getXsList().get(0)/SystemDeclarations.getXsList().size()) * 100));
+			
+			//Blend b = new Blend(BlendMode.MULTIPLY);
+			//b.
+			//b.setMode(BlendMode);
+			
+			ColorAdjust ca = new ColorAdjust();
+			ca.setSaturation(100);
+			this.dataEnc.get(SystemDeclarations.getXsList().get(0)).iv.setEffect(ca);
+			
+			
+			
+			
+			
+			
+			
+			
+			SystemDeclarations.getXsList().remove(0);
+		}else {
+			Thread.currentThread().interrupt();
+		}
 	}
 	
 	
@@ -197,12 +237,15 @@ public class MenuController implements EventHandler, Initializable{
 		
 		for(int i = 0; i < this.dataEnc.size(); i++) {
 			BorderPane p = new BorderPane();
-			Image ik = this.dataEnc.get(i).pr;
+			//Image ik = this.dataEnc.get(i).pr;
 			//ik..resize(10, 10);
-			ImageView iv = new ImageView(ik);
-			iv.setFitHeight(100);
-			iv.setFitWidth(100);
-			p.setCenter(iv);
+			//ImageView iv = new ImageView(ik);
+			this.dataEnc.get(i).iv.setFitHeight(100);
+			this.dataEnc.get(i).iv.setFitWidth(100);
+			Line line = new Line(0,100, 3, 250);
+		//	line.
+			p.setRight(line);
+			p.setCenter(this.dataEnc.get(i).iv);
 			this.dataEnc.get(i).lp.setText("Person: " + i);
 			p.setBottom(this.dataEnc.get(i).lp);
 			this.profileid.getItems().add(p);
