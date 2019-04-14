@@ -32,6 +32,10 @@ public class Profile {
 		
 	}
 	
+	public Image getImage() {
+		return this.getUserImage;
+	}
+	
 	public Data getDataProfile() {
 		return this.profileData;
 	}

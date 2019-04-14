@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
-
+import Model.Overwatch;
+import Model.Profile;
 import Model.SystemDeclarations;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -103,12 +104,26 @@ public class MenuController implements EventHandler, Initializable{
 
 	public MenuController()
 	{
-
+		Overwatch watcher = new Overwatch();
+		
+		watcher.addUser(new Profile("Todd","Howard",new Image("/Resource/286.jpg")));
+		watcher.addUser(new Profile("Mustache","Howard",new Image("/Resource/3-30-pdt-newsroom-breaking-news-at-11-video-game-reviewer-38499655.png")));
+		watcher.addUser(new Profile("Sailor","Howard",new Image("/Resource/5xelm7semsr11.png")));
+		watcher.addUser(new Profile("Lord","Howard",new Image("/Resource/7Y7MrLf.png")));
+		watcher.addUser(new Profile("Cowboy","Howard",new Image("/Resource/400.jpg")));
+		watcher.addUser(new Profile("Snape","Howard",new Image("/Resource/aqSwFnU.jpg")));
+		watcher.addUser(new Profile("Detective","Howard",new Image("/Resource/Letrollzorusedrollpictureletrollzorrolledimagewhatmakesmeblush_9ec902dda5f2436e7aec03926ff70786.jpg")));
+		watcher.addUser(new Profile("FaceLess","Howard",new Image("/Resource/OHyrJ8g.jpg")));
+		watcher.addUser(new Profile("Nice","Howard",new Image("/Resource/s00nsif0quuydyolyndr.jpg")));
+		watcher.addUser(new Profile("General","Howard",new Image("/Resource/tumblr_oyg814xR791r9qoglo3_r1_500.jpg")));
+		
+		
+		
 		//DataCollection();
 		try {
-			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+			/*Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
 			BufferedImage bf = new java.awt.Robot().createScreenCapture(screenRect);
-			test =  SwingFXUtils.toFXImage(bf, null);
+			test =  SwingFXUtils.toFXImage(bf, null);*/
 			//test = SystemDeclarations.xImage;
 			//this.screenCapid.setImage(i);
 		}catch(Exception e) {
@@ -116,7 +131,7 @@ public class MenuController implements EventHandler, Initializable{
 		}
 		
 		for(int i  = 0; i < 10; i++) {
-			this.dataEnc.add(new Wrapper(test,"hello"));
+			this.dataEnc.add(new Wrapper(watcher.getUser(i).getImage(), watcher.getUser(i).getFullName()));
 			SystemDeclarations.getXsList().add(i);
 		}
 		Collections.shuffle(SystemDeclarations.XsOut);
@@ -345,7 +360,7 @@ public class MenuController implements EventHandler, Initializable{
 		//	line.
 			p.setRight(line);
 			p.setCenter(this.dataEnc.get(i).iv);
-			this.dataEnc.get(i).lp.setText("Person: " + i);
+			//this.dataEnc.get(i).lp.setText( + i);
 			p.setBottom(this.dataEnc.get(i).lp);
 			this.profileid.getItems().add(p);
 		}

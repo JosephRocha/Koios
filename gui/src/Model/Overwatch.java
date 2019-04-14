@@ -20,9 +20,10 @@ public class Overwatch {
 		this.users.put(p.getUserId(), p); // add user here;
 	}
 	
-	public Profile getUser(Profile p) {
-		return this.users.get(p.getUserId());
+	public Profile getUser(int id) {
+		return this.users.get(id);
 	}
+	
 	
 	
 		
